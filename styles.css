@@ -1,0 +1,100 @@
+:root {
+  --color-dark: #000000;
+  --color-light: #dfdff2;
+  --color-yellow: #f1ff7e;
+  --color-contrast: #54545c;
+  --color-blue: #5724ff;
+}
+
+@font-face {
+  font-family: "Robert-R";
+  src: url("./src/assets/fonts/Roobert-Regular.woff2");
+}
+
+@font-face {
+  font-family: "Robert-M";
+  src: url("./src/assets/fonts/Roobert-Medium.woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./src/assets/fonts/RobotoMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Xen";
+  src: url("./src/assets/fonts/ZENTRY-Regular.woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  width: 100%;
+}
+
+main {
+  position: relative;
+  background-color: var(--color-dark);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1vw 1vw;
+  background-color: red;
+}
+
+.navbarWrap {
+  background-color: var(--color-dark);
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8vw 1.5vw;
+}
+
+.navbarWrap .sackLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6vw;
+}
+
+.navbarWrap .sackLeft img {
+  height: 2.5rem;
+}
+
+.navbarWrap .sackRight{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+}
+
+.navLink{
+    display: block;
+    text-decoration: none;
+    color: var(--color-light);
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-size: .75vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-weight: 600;
+    letter-spacing: .02vw;
+}
+
+.navLink>img{
+    margin-top: 2.5px;
+}
