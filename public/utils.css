@@ -1,45 +1,99 @@
-/* BUTTON SVG CLASSIFIED MAINLY AT -- utils.css */
-.btn__main{
-    position: relative;
-    /* overflow: hidden; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: red;
+/* FONT FEATURE SETTING MANLY */
+.fontSetting {
+  font-feature-settings: "ss01" on;
 }
 
-.btn__main .btnMain__top{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+/* BUTTON SVG CLASSIFIED MAINLY AT -- utils.css (Navbar Product Button) */
+.btn__main {
+  position: relative;
+  /* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
 }
 
-.btn__main .btnMain__top svg{
-    margin-top: 3.3px;
-    width: fit-content;
+.btn__main .btnMain__top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
 }
 
-.btn__main .btnMain__top .btnMain__span{
-    width: fit-content;
-    font-size: .65vw;
-    font-family: 'Roboto';
-    font-weight: 600;
+.btn__main .btnMain__top svg {
+  margin-top: 3.3px;
+  width: fit-content;
 }
 
-.btn__main .btnMain__bottom{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn__main .btnMain__top .btnMain__span {
+  width: fit-content;
+  font-size: 0.65vw;
+  font-family: "Roboto";
+  font-weight: 600;
+}
+
+.btn__main .btnMain__bottom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TOGGLE JS PRODUCT BTN */
+.btnMain__topSvg {
+  transform: rotate(180deg);
+  margin-bottom: 3.3px;
+}
+
+/* BUTTON SVG CLASSIFIED MAINLY AT -- utils.css (Hero Watch Trailer Button) */
+.heroBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+}
+
+.heroBtnTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  pointer-events: none;
+}
+
+.heroBtnTopSVG {
+  transform: scale(0.8);
+}
+
+.heroBtnSpan {
+  width: fit-content;
+  font-size: 0.75vw;
+  font-family: "Roboto";
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.heroBtnBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

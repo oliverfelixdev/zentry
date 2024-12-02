@@ -36,6 +36,7 @@ html,
 body {
   min-height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 main {
@@ -49,17 +50,21 @@ nav {
   justify-content: center;
   width: 100%;
   padding: 1vw 1vw;
-  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
 }
 
 .navbarWrap {
-  background-color: var(--color-dark);
+  /* background-color: var(--color-dark); */
+  backdrop-filter: blur(900px);
   width: 100%;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .8vw 1.5vw;
+  padding: 0.5vw 1.5vw;
 }
 
 .navbarWrap .sackLeft {
@@ -73,28 +78,179 @@ nav {
   height: 2.5rem;
 }
 
-.navbarWrap .sackRight{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 45px;
+.navbarWrap .sackRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 55px;
 }
 
-.navLink{
-    display: block;
-    text-decoration: none;
-    color: var(--color-light);
-    font-family: 'Roboto';
-    text-transform: uppercase;
-    font-size: .75vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    font-weight: 600;
-    letter-spacing: .02vw;
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-light);
+  font-family: "Roboto";
+  text-transform: uppercase;
+  font-size: 0.75vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-weight: 600;
+  letter-spacing: 0.02vw;
+  z-index: 1;
+  transition: color 0.3s;
+  width: 100px;
+  height: 100%;
+  transition: color all 0.2s ease-in-out;
+  &:hover {
+    color: var(--color-dark);
+  }
+  &:hover img {
+    filter: invert(1);
+  }
 }
 
-.navLink>img{
-    margin-top: 2.5px;
+.hover-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+	transition: 0.2s linear;
+  top: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hover-bg svg {
+  height: 40px;
+  width: 100px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.navLink:hover + .hover-bg svg,
+.hover-bg:hover svg {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navLink > img {
+  margin-top: 2.5px;
+  transition: color all 0.2s ease-in-out;
+}
+
+.soundWave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 3px;
+  width: fit-content;
+  margin-left: 1vw;
+}
+
+.indicatorLine {
+  width: 1px;
+  background-color: var(--color-light);
+  height: 8px;
+  animation: wave 1s infinite ease-out;
+  animation-play-state: paused;
+  transition: height 0.3s ease;
+  border-radius: 100px;
+}
+
+@keyframes wave {
+  25% {
+    height: 16px;
+  }
+  50% {
+    height: 20px;
+  }
+}
+
+#section_1 {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.heroVideoWrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.heroVideoWrap video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.section1Wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.heroSack {
+  height: 100%;
+  width: 50%;
+}
+
+.section1Wrap .sackLeft {
+  padding: 7.5vw 0 0 2.5vw;
+}
+
+.section1Wrap .sackRight {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 2vw 2vw 0;
+}
+
+.heroTitle {
+  font-family: "Xen";
+  font-size: 12.5vw;
+  width: fit-content;
+  height: fit-content;
+  line-height: 0.8;
+  color: var(--color-light);
+}
+
+.unleash {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  padding: 1vw 0 0 0;
+  gap: 10px;
+}
+
+.heroSubtitle {
+  font-size: 1.1vw;
+  font-family: "Robert-R";
+  width: 90%;
+  color: var(--color-light);
+  font-weight: 500;
 }
