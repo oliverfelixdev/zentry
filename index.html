@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="./public/utils.css">
 </head>
@@ -20,11 +21,12 @@
                         </a>
                         <button class="btn__main menuIcon">
                             <div class="btnMain__top menuIconTop">
-                                <span class="btnMain__span">PRODUCTS</span>
+                                <span class="subtitle-sm">PRODUCTS</span>
                                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
                                     aria-hidden="true" class="" data-v-e9efd6ee="" width="9" height="9">
                                     <defs>
                                         <symbol viewBox="0 0 7.5 6.75" id="icon-arrowdown-narrow" fill="#000000">
+
                                             <path d="m3.75,6.75L0,0l3.75,2.01L7.5,0l-3.75,6.75Z" fill="#000000"></path>
                                         </symbol>
                                     </defs>
@@ -88,9 +90,9 @@
         <section id="section_1">
             <div class="section1Wrap">
                 <div class="heroSack sackLeft">
-                    <h1 class='heroTitle'><span>REDEFI<span class='fontSetting'>N</span>E</span></h1>
+                    <h1 class='title-xl'><span>REDEFI<span class='fontSetting'>N</span>E</span></h1>
                     <div class="unleash">
-                        <p class="heroSubtitle">Enter the Metagame Layer<br />Unleash the Play Economy</p>
+                        <p class="subtitle-md">Enter the Metagame Layer<br />Unleash the Play Economy</p>
                         <button class="heroBtn">
                             <div class="heroBtnTop">
                                 <svg class="heroBtnTopSVG" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -123,7 +125,7 @@
                     </div>
                 </div>
                 <div class="heroSack sackRight">
-                    <h1 class='heroTitle'><span>G<span class='fontSetting'>A</span>MING</span></h1>
+                    <h1 class='title-xl'><span>G<span class='fontSetting'>A</span>MING</span></h1>
                 </div>
             </div>
             <div class="heroVideoWrap">
@@ -133,9 +135,33 @@
                 <!-- <video loop autoplay muted src="./public/hero-cut-1.mp4" class="heroVideo"></video> -->
             </div>
         </section>
+        <section id="section_2">
+            <div class="section2Wrap">
+                <div class="sackTop">
+                    <span class="subtitle-sm">WELCOME TO ZENTRY</span>
+                    <h1 class="title-lg s2title w-[70%]">
+                        Disc<span class="fontSetting">o</span>ver the world's
+                        largest shared <span class="fontSetting">a</span>dventure</span>
+                    </h1>
+                </div>
+                <div class="sackMiddle">
+                    <img src="./src/assets/images/clownimage.webp" alt="not found" class="clownsImage">
+                    <div class="distortionContainer">
+                        <div class="expandableTile border-y border-x border-black">
+                            <img src="./src/assets/images/tileImage.webp" alt="not found" class="tileImage">
+                        </div>
+                    </div>
+                </div>
+                <div class="sackBottom">
+                    <p class="subtitle-md text-black">The Game of Games Begins—your life, now an epic MMORPG</p>
+                    <p class="subtitle-md text-zinc-500 w-1/3 text-center">Zentry unites the every players from countless games platforms, both digital and physical, into a unified Play Economy</p>
+                </div>
+            </div>
+        </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://assets.codepen.io/16327/MorphSVGPlugin3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="main.js"></script>
 </body>
 

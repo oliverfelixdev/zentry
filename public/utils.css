@@ -33,10 +33,6 @@
 }
 
 .btn__main .btnMain__top .btnMain__span {
-  width: fit-content;
-  font-size: 0.65vw;
-  font-family: "Roboto";
-  font-weight: 600;
 }
 
 .btn__main .btnMain__bottom {
@@ -97,3 +93,42 @@
   align-items: center;
   justify-content: center;
 }
+
+/* TITLES CLASSIFIED at (utils.css) of Whole Website */
+.title-xl{
+  font-family: "Xen";
+  font-size: 12.5vw;
+  width: fit-content;
+  height: fit-content;
+  line-height: 0.8;
+  color: var(--color-light);
+}
+
+.title-lg{
+  font-family: "Xen";
+  font-size: 7vw;
+  width: fit-content;
+  height: fit-content;
+  line-height: 0.85;
+  text-align: center;
+}
+
+/* SUBTITLE SMALL (sm) */
+.subtitle-sm {
+  width: fit-content;
+  font-size: 0.65vw;
+  font-family: "Roboto";
+  font-weight: 600;
+}
+
+.subtitle-md{
+  font-size: 1.1vw;
+  font-family: "Robert-R";
+  width: 90%;
+  color: var(--color-light);
+  font-weight: 500;
+  line-height: 1.2;
+  width: fit-content;
+}
+
+/* SUBTITLE MD (md) */

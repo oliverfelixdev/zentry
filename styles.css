@@ -116,7 +116,7 @@ nav {
   position: absolute;
   height: 100%;
   width: 100%;
-	transition: 0.2s linear;
+  transition: 0.2s linear;
   top: 0;
   z-index: 0;
   pointer-events: none;
@@ -228,15 +228,6 @@ nav {
   padding: 0 2vw 2vw 0;
 }
 
-.heroTitle {
-  font-family: "Xen";
-  font-size: 12.5vw;
-  width: fit-content;
-  height: fit-content;
-  line-height: 0.8;
-  color: var(--color-light);
-}
-
 .unleash {
   display: flex;
   align-items: flex-start;
@@ -247,10 +238,76 @@ nav {
   gap: 10px;
 }
 
-.heroSubtitle {
-  font-size: 1.1vw;
-  font-family: "Robert-R";
-  width: 90%;
-  color: var(--color-light);
-  font-weight: 500;
+#section_2 {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: var(--color-light);
+  overflow: hidden;
+}
+
+.section2Wrap {
+  width: 100%;
+}
+
+.section2Wrap .sackTop {
+  padding: 5vw 0 0 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sackMiddle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 8vw 0;
+  width: 100%;
+}
+
+.sackMiddle .clownsImage {
+  transform: scale(1.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sackMiddle .distortionContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: perspective(500px) rotateX(10deg) rotateY(15deg) rotateZ(-3deg);
+
+}
+
+.sackMiddle .distortionContainer .expandableTile {
+  height: 460px;
+  width: 320px;
+  overflow: hidden;
+  border-radius: 9px;
+  transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  /* transform: perspective(500px) rotateX(10deg) rotateY(15deg) rotateZ(-3deg); */
+}
+
+.sackMiddle .distortionContainer .expandableTile .tileImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(2);
+}
+
+.sackBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }
