@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<main>
+
+</main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        let element = document.querySelector(".expandableTile")
+        let distContainer = document.querySelector(".sackMiddle")
+        gsap.to(element, {
+            width: '100%',
+            scrollTrigger: {
+                trigger: distContainer,
+                scroller: "body",
+                start: 'top 0',
+                end: 'top -100%',
+                scrub: 2,
+                markers: true
+            }
+        })
+    </script>
+</body>
+
+</html>

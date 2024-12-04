@@ -134,96 +134,141 @@ let heroTrailerBtn = () => {
 }; heroTrailerBtn();
 
 let section2GsapVigour = () => {
-    // animation for Heading
-    let title = document.querySelector(".s2title")
-    gsap.fromTo(title, {
-        opacity: 0,
-        y: 100,
-        x: -100,
-        rotateY: -50,
-        rotateX: -40
-    }, {
-        opacity: 1,
-        y: 0,
-        x: 0,
-        rotateX: 0,
-        rotateY: 0,
-        duration: 5,
-        stagger: 0.1,
-        ease: "power1.in",
-        scrollTrigger: {
-            trigger: title,
-            start: "top bottom",
-            end: "top bottom",
-            scrub: 1,
-        }
-    })
-
-    // animation for tile (bottom coming)
+    let sectionTwo = document.querySelector("#section_2")
     let element = document.querySelector(".expandableTile")
     let image = document.querySelector(".tileImage")
-    gsap.fromTo(element, {
-        y: 100,
-        opacity: 0,
-        scale: 0.8,
-    }, {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "circ.out",
-        scrollTrigger: {
-            trigger: element,
-            start: "top bottom",
-            end: "top bottom",
-        },
-    })
+
+    // animation for Heading
+    function fortitle() {
+        let title = document.querySelector(".s2title")
+        gsap.fromTo(title, {
+            opacity: 0,
+            y: 100,
+            x: -100,
+            rotateY: -60,
+            rotateX: -50
+        }, {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            rotateX: 0,
+            rotateY: 0,
+            duration: 5,
+            stagger: 0.1,
+            ease: "power1.in",
+            scrollTrigger: {
+                trigger: title,
+                start: "top bottom",
+                end: "top bottom",
+                scrub: 1,
+            }
+        })
+    } fortitle();
+
+    // animation for tile (bottom coming)
+    function forTileBottomComing() {
+        gsap.fromTo(element, {
+            y: 100,
+            opacity: 0,
+            scale: 0.8,
+        }, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "circ.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top bottom",
+                end: "top bottom",
+            },
+        })
+
+    } forTileBottomComing();
 
     // animation for tile (distort on Mousemove)
-    document.body.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const { innerWidth, innerHeight } = window;
+    function forTileDistortion() {
+        document.body.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const { innerWidth, innerHeight } = window;
 
-        const tiltX = ((clientY / innerHeight) - 0.5) * 15;
-        const tiltY = ((clientX / innerWidth) - 0.5) * -15;
+            const tiltX = ((clientY / innerHeight) - 0.5) * 15;
+            const tiltY = ((clientX / innerWidth) - 0.5) * -15;
 
+            gsap.to(element, {
+                rotationX: tiltX,
+                rotationY: tiltY,
+                duration: 0.3,
+                ease: 'power1.out',
+                transformPerspective: 500,
+            });
+
+            const imageX = ((clientX / innerWidth) - 0.5) * 7.5;
+            const imageY = ((clientY / innerHeight) - 0.5) * -7.5;
+
+            gsap.to(image, {
+                x: imageX,
+                y: imageY,
+                duration: 0.3,
+                ease: 'power1.out',
+            });
+        });
+    } forTileDistortion();
+
+    // animtaion for tile (Expand of Tile)
+    function forTileExpand() {
         gsap.to(element, {
-            rotationX: tiltX,
-            rotationY: tiltY,
-            duration: 0.3,
-            ease: 'power1.out',
-            transformPerspective: 500,
-        });
+            width: '100vw',
+            height: '100vh',
+            transform: 'none',
+            scrollTrigger: {
+                trigger: sectionTwo,
+                scroller: "body",
+                start: 'top 0',
+                end: 'top -100%',
+                scrub: 2,
+                pin: true,
+                markers: true
 
-        const imageX = ((clientX / innerWidth) - 0.5) * 7.5;
-        const imageY = ((clientY / innerHeight) - 0.5) * -7.5;
+            }
+        })
+    }
 
-        gsap.to(image, {
-            x: imageX,
-            y: imageY,
-            duration: 0.3,
-            ease: 'power1.out',
-        });
-    });
+    // clear the distortion Container Transform
+    function toClearTransform() {
+        let distortSection = document.querySelector(".distortionContainer")
+        gsap.to(distortSection, {
+            transform: 'none',
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: sectionTwo,
+                scroller: 'body',
+                start: 'top 0',
+                end: 'top -100%',
+                scrub: 2,
+            }
+        })
+    }
 
     // animation for clowns image
-    let clownImage = document.querySelector(".clownsImage");
-    document.body.addEventListener("mousemove", (e) => {
-        const { clientX, clientY } = e;
-        const { innerWidth, innerHeight } = window;
-        
-        const moveX = ((clientX / innerWidth) - 0.5) * 20; // Adjust the multiplier for the movement distance
-        const moveY = ((clientY / innerHeight) - 0.5) * 20; // Adjust the multiplier for the movement distance
-    
-        gsap.to(clownImage, {
-            x: moveX,
-            y: moveY,
-            duration: 0.3,
-            ease: 'power1.out',
+    function forClownsImages() {
+        let clownImage = document.querySelector(".clownsImage");
+        document.body.addEventListener("mousemove", (e) => {
+            const { clientX, clientY } = e;
+            const { innerWidth, innerHeight } = window;
+
+            const moveX = ((clientX / innerWidth) - 0.5) * 20;
+            const moveY = ((clientY / innerHeight) - 0.5) * 20;
+
+            gsap.to(clownImage, {
+                x: moveX,
+                y: moveY,
+                duration: 0.3,
+                ease: 'power1.out',
+            });
         });
-    });
-    
+    } forClownsImages();
 
-}
 
-section2GsapVigour();
+
+}; section2GsapVigour();
