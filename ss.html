@@ -4,31 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Precise Grid Layout</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            /* Background for contrast */
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Two columns */
+            grid-template-rows: auto auto auto;
+            /* Three rows */
+            gap: 10px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* General grid-item styling */
+        .grid-item {
+            background-color: #1f1f1f;
+            /* Placeholder color */
+            color: aliceblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        /* Top Container */
+        .item1 {
+            grid-column: span 2;
+            /* Full width */
+            min-height: 350px;
+        }
+
+        /* Middle Section */
+        .item2 {
+            grid-column: span 1;
+            /* Left half, first stacked container */
+            min-height: 175px;
+        }
+
+        .item3 {
+            grid-column: span 1;
+            /* Left half, second stacked container */
+            min-height: 175px;
+        }
+
+        .item4 {
+            grid-row: span 2;
+            /* Spans two rows (Right-side big container) */
+            min-height: 350px;
+        }
+
+        /* Bottom Section */
+        .item5 {
+            grid-column: span 1;
+            /* Left bottom container */
+            min-height: 200px;
+            background-color: blue;
+        }
+
+        .item6 {
+            grid-column: span 1;
+            /* Right bottom container */
+            min-height: 200px;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
-<main>
+    <div id="grid">
+        <!-- Top Container -->
+        <div class="grid-item item1">AAA</div>
 
-</main>
+        <!-- Middle Section -->
+        <div class="grid-item item4">DDD</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script>
-        let element = document.querySelector(".expandableTile")
-        let distContainer = document.querySelector(".sackMiddle")
-        gsap.to(element, {
-            width: '100%',
-            scrollTrigger: {
-                trigger: distContainer,
-                scroller: "body",
-                start: 'top 0',
-                end: 'top -100%',
-                scrub: 2,
-                markers: true
-            }
-        })
-    </script>
+        <!-- Bottom Section -->
+        <div class="grid-item item5">EEE</div>
+        <div class="grid-item item6">FFF</div>
+        <div class="grid-item item2">BBB</div>
+        <div class="grid-item item3">CCC</div>
+    </div>
 </body>
 
 </html>

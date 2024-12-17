@@ -92,7 +92,7 @@
 }
 
 /* TITLES CLASSIFIED at (utils.css) of Whole Website */
-.title-xl{
+.title-xl {
   font-family: "Xen";
   font-size: 12.5vw;
   width: fit-content;
@@ -101,7 +101,7 @@
   color: var(--color-light);
 }
 
-.title-lg{
+.title-lg {
   font-family: "Xen";
   font-size: 7vw;
   width: fit-content;
@@ -118,14 +118,77 @@
   font-weight: 600;
 }
 
-.subtitle-md{
+/* SUBTITLE MD (md) */
+.subtitle-md {
   font-size: 1.1vw;
   font-family: "Robert-R";
   width: 90%;
   color: var(--color-light);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1;
   width: fit-content;
 }
 
-/* SUBTITLE MD (md) */
+/* GRID Stylize */
+.grid-title {
+  font-size: 3.5vw;
+  font-family: "Xen";
+  line-height: .9;
+  width: fit-content;
+}
+
+.grid-subtitle {
+  font-size: 0.8vw;
+  font-family: "Robert-R";
+  /* width: 30%; */
+  width: 25ch;
+  line-height: 1.2;
+  display: block;
+}
+
+/* grid button "BUTTON DISABLED"*/
+.grid-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: rgb(0, 0, 0);
+  padding: 0.5vw 1vw;
+  border-radius: 100px;
+  &:disabled {
+    background-color: var(--color-disabled);
+    color: var(--background-disabled);
+    opacity: 90%;
+    border: 1px solid var(--color-contrast);
+  }
+}
+
+/* grid BUTTON NEXUS */
+.nexusBtn {
+  position: relative;
+  display: flex;
+  height: 26px;
+  width: 104px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+}
+
+.nexBtnTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+}
+
+.nexBtnTop svg {
+  margin-top: 6px;
+}
+
+.nexBtnBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
