@@ -1,107 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Precise Grid Layout</title>
-    <style>
-        /* Reset styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #000;
-            /* Background for contrast */
-        }
-
-        #grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            /* Two columns */
-            grid-template-rows: auto auto auto;
-            /* Three rows */
-            gap: 10px;
-            width: 90%;
-            max-width: 1200px;
-        }
-
-        /* General grid-item styling */
-        .grid-item {
-            background-color: #1f1f1f;
-            /* Placeholder color */
-            color: aliceblue;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-
-        /* Top Container */
-        .item1 {
-            grid-column: span 2;
-            /* Full width */
-            min-height: 350px;
-        }
-
-        /* Middle Section */
-        .item2 {
-            grid-column: span 1;
-            /* Left half, first stacked container */
-            min-height: 175px;
-        }
-
-        .item3 {
-            grid-column: span 1;
-            /* Left half, second stacked container */
-            min-height: 175px;
-        }
-
-        .item4 {
-            grid-row: span 2;
-            /* Spans two rows (Right-side big container) */
-            min-height: 350px;
-        }
-
-        /* Bottom Section */
-        .item5 {
-            grid-column: span 1;
-            /* Left bottom container */
-            min-height: 200px;
-            background-color: blue;
-        }
-
-        .item6 {
-            grid-column: span 1;
-            /* Right bottom container */
-            min-height: 200px;
-            background-color: red;
-        }
-    </style>
+    <title>Document</title>
 </head>
-
 <body>
-    <div id="grid">
-        <!-- Top Container -->
-        <div class="grid-item item1">AAA</div>
-
-        <!-- Middle Section -->
-        <div class="grid-item item4">DDD</div>
-
-        <!-- Bottom Section -->
-        <div class="grid-item item5">EEE</div>
-        <div class="grid-item item6">FFF</div>
-        <div class="grid-item item2">BBB</div>
-        <div class="grid-item item3">CCC</div>
-    </div>
+    
 </body>
-
 </html>
