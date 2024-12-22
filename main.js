@@ -329,19 +329,18 @@ let titlGridItems = () => {
 
 let playVideoOnHover = () => {
     const gridItems = document.querySelectorAll(".grid-item");
-    
+
     gridItems.forEach((item) => {
         const gridVideo = item.querySelector(".grid-item video")
         item.addEventListener("mouseenter", () => {
             gridVideo.play()
         })
-        item.addEventListener("mouseleave", ()=>{
+        item.addEventListener("mouseleave", () => {
             gridVideo.pause();
         })
     })
 
 
-}
+}; playVideoOnHover()
 
 
-playVideoOnHover()
