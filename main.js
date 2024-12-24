@@ -223,8 +223,8 @@ let section2GsapVigour = () => {
                 transformPerspective: 500,
             });
 
-            const imageX = (clientX / innerWidth - 0.5) * 7.5;
-            const imageY = (clientY / innerHeight - 0.5) * -7.5;
+            const imageX = (clientX / innerWidth - 0.5) * 3.5;
+            const imageY = (clientY / innerHeight - 0.5) * -3.5;
 
             gsap.to(image, {
                 x: imageX,
