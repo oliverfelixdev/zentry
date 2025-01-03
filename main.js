@@ -344,3 +344,30 @@ let playVideoOnHover = () => {
 }; playVideoOnHover()
 
 
+/* document.body.addEventListener("mousemove", (e) => {
+    const element = document.querySelector(".mask-box")
+    const image = document.querySelector(".svgIn")
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+
+    const tiltX = (clientY / innerHeight - 0.5) * 5;
+    const tiltY = (clientX / innerWidth - 0.5) * -5;
+
+    gsap.to(element, {
+        rotationX: tiltX,
+        rotationY: tiltY,
+        duration: 0.3,
+        ease: "power1.out",
+        transformPerspective: 500,
+    });
+
+    const imageX = (clientX / innerWidth - 0.5) * 5.5;
+    const imageY = (clientY / innerHeight - 0.5) * 5.5;
+
+    gsap.to(image, {
+        x: imageX,
+        y: imageY,
+        duration: 0.3,
+        ease: "power1.out",
+    });
+}); */
