@@ -29,6 +29,11 @@
   src: url("./src/assets/fonts/ZENTRY-Regular.woff2");
 }
 
+@font-face {
+  font-family: 'BacMat';
+  src: url('./src/assets/fonts/blackmatteo.ttf');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -502,6 +507,7 @@ nav {
   min-height: 100vh;
   width: 100vw;
   overflow: hidden;
+  padding: 5vw 0;
 }
 
 .s4_wrap {
@@ -523,42 +529,342 @@ nav {
   color: var(--color-light);
 }
 
-.frame-outer {
+.imagebar {
   width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  padding: 4vw 0;
 }
 
-.frame-inner {
+.realm-imageCon {
+  transform: perspective(600px) rotate3d(1, 1, 0, 20deg);
+  width: 60%;
+  height: 70vh;
+  overflow: hidden;
+  border-radius: 10px;
   position: relative;
-  z-index: 1;
-  width: 43rem;
-  height: 27rem;
-  margin-left: 10vw;
-  padding: 0 0 1vw 0;
+  margin: auto;
 }
 
-.mask-box {
-  scale: 1.2;
+.realm-imageCon img {
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  object-fit: cover;
 }
 
-.bottom-info-realm{
+.bottom_text_container {
   width: 100%;
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2vw 5vw 0 0;
+}
+
+.btc-wrap {
+  display: flex;
+  align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: red;
-  padding: 3vw 6vw 3vw 0;
+  width: 20rem;
+  gap: 10px;
 }
-.bottom-info-realm p{
-  width: 25%;
+
+.btc-wrap p {
+  width: 100%;
+}
+
+.default__btn {
+  padding: 0.5vw 1.5vw;
+  background: var(--color-light);
+  color: var(--color-dark);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#section_5 {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: var(--color-light);
+  padding: 5vw 0;
+}
+
+.sec5-wrap {
+  width: 100%;
+}
+
+.tt-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  perspective: 2000px;
+}
+
+.tt-content h1 {
+  font-family: "Xen";
+  font-size: 7.5vw;
+  width: fit-content;
+  height: 80px;
+  line-height: 0.85;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.image__tile {
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  background-color: var(--color-disabled);
+  border-radius: 5px;
+  vertical-align: middle;
+  margin: 0 0.2em;
+  position: sticky;
+  pointer-events: all;
+  overflow: hidden;
+  border: 1.5px solid var(--color-dark);
+  transition: all 0.5s ease;
+  transition-delay: 20ms;
+}
+
+.image__tile:hover {
+  width: 2.5em;
+  height: 1.9em;
+  background-color: #000000;
+
+  border-radius: 8px;
+}
+
+.image__tile img {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease-out;
+}
+
+.image__tile:hover img {
+  opacity: 1;
+  position: absolute;
+}
+
+.detail-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2vw 0;
+}
+
+.detail-wrap p {
+  color: var(--color-dark);
+  width: 30%;
+  text-align: center;
+}
+
+.detail-wrap button {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+#section_6 {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: var(--color-light);
+}
+
+.sec6-wrap {
+  width: 90%;
+  height: 85%;
+  background-color: var(--color-dark);
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sec6-wrap .t-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.joinZentry {
+  font-size: 0.7vw;
+  font-family: "Roboto";
+  text-align: center;
+  color: var(--color-light);
+}
+
+.sec6-wrap h1 {
+  color: var(--color-light);
+  width: 51%;
+  text-align: center;
+}
+
+.sec6-wrap .image__frames {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.image-frame {
+  overflow: hidden;
+  border: 1.5px solid #000;
+}
+
+.image-frame img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /* position: absolute; */
+}
+
+.image1 {
+  height: 240px;
+  width: 190px;
+  border-radius: 8px;
+  position: absolute;
+  top: -10%;
+  left: 20%;
+  transform: perspective(400px) rotateX(-20deg) rotateY(20deg);
+}
+
+.image2 {
+  height: 240px;
+  width: 190px;
+  border-radius: 8px;
+  position: absolute;
+  top: 67%;
+  left: 20%;
+  transform: perspective(400px) rotateX(30deg) rotateY(10deg) rotateZ(20deg);
+}
+
+.image3 {
+  height: 400px;
+  width: 270px;
+  border-radius: 8px;
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  transform: perspective(400px) rotateX(10deg) rotateY(-18deg) rotateZ(10deg);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--color-blue);
+  color: black;
+}
+
+.footer-title {
+  font-size: 37vw;
+  font-family: "Xen";
+  width: fit-content;
+  height: fit-content;
+  line-height: 0.85;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 2vw 0 7vw 0;
+  font-weight: 100;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-section {
+  text-align: left;
+}
+
+.footer-section h4 {
+  margin: 0 0 20px;
+  font-size: 0.7vw;
+  font-family: "Roboto";
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+  font-family: "Robert-M";
+}
+
+.footer-logo {
+  padding: 3vw 0;
+}
+
+.footer-logo img {
+  width: 50px;
+  height: auto;
+}
+
+.footer-bottom {
+  font-size: 0.7vw;
+  font-family: "Roboto";
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7vw 3vw 1vw 3vw;
+  font-weight: 600;
+}
+
+.footer-bottom p{
+  text-transform: uppercase;
+}
+
+.oliverFelix {
+  border-bottom: 1.4px solid var(--color-dark);
+  padding: 0 0 0.1px 0;
+}
+
+.oliverFelixSignature{
+  font-family: 'BacMat';
+  font-size: 1.5vw;
+  color: var(--color-dark);
+}
+
+.footer-bottom a {
+  text-decoration: none;
 }

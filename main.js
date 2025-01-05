@@ -149,38 +149,6 @@ let section2GsapVigour = () => {
     let element = document.querySelector(".expandableTile");
     let image = document.querySelector(".tileImage");
 
-    // animation for Heading
-    function fortitle() {
-        let title = document.querySelector(".s2title");
-        gsap.fromTo(
-            title,
-            {
-                opacity: 0,
-                y: 100,
-                x: -100,
-                rotateY: -60,
-                rotateX: -50,
-            },
-            {
-                opacity: 1,
-                y: 0,
-                x: 0,
-                rotateX: 0,
-                rotateY: 0,
-                duration: 5,
-                stagger: 0.1,
-                ease: "power1.in",
-                scrollTrigger: {
-                    trigger: title,
-                    start: "top bottom",
-                    end: "top bottom",
-                    scrub: 1,
-                },
-            }
-        );
-    }
-    fortitle();
-
     // animation for tile (bottom coming)
     function forTileBottomComing() {
         gsap.fromTo(
@@ -343,31 +311,70 @@ let playVideoOnHover = () => {
 
 }; playVideoOnHover()
 
+function fortitleALL() {
+    let title = document.querySelectorAll(".title-lg");
+    title.forEach((head) => {
 
-/* document.body.addEventListener("mousemove", (e) => {
-    const element = document.querySelector(".mask-box")
-    const image = document.querySelector(".svgIn")
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
+        gsap.fromTo(
+            head,
+            {
+                opacity: 0,
+                y: 100,
+                x: -100,
+                rotateY: -60,
+                rotateX: -50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                rotateX: 0,
+                rotateY: 0,
+                duration: 5,
+                stagger: 0.1,
+                ease: "power1.in",
+                scrollTrigger: {
+                    trigger: head,
+                    start: "top bottom",
+                    end: "top bottom",
+                    scrub: 1,
+                },
+            }
+        );
+    })
 
-    const tiltX = (clientY / innerHeight - 0.5) * 5;
-    const tiltY = (clientX / innerWidth - 0.5) * -5;
+} fortitleALL();
 
-    gsap.to(element, {
-        rotationX: tiltX,
-        rotationY: tiltY,
-        duration: 0.3,
-        ease: "power1.out",
-        transformPerspective: 500,
-    });
+function imageFrameZentry() {
+    let imageFrame = document.querySelectorAll(".image-frame");
+    imageFrame.forEach((head) => {
 
-    const imageX = (clientX / innerWidth - 0.5) * 5.5;
-    const imageY = (clientY / innerHeight - 0.5) * 5.5;
+        gsap.fromTo(
+            head,
+            {
+                opacity: 0,
+                y: 100,
+                x: -100,
+                rotateY: 60,
+                rotateX: -50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                rotateX: 0,
+                rotateY: 0,
+                duration: 5,
+                stagger: 0.1,
+                ease: "power1.in",
+                scrollTrigger: {
+                    trigger: head,
+                    start: "top bottom",
+                    end: "top bottom",
+                    scrub: 1,
+                },
+            }
+        );
+    })
 
-    gsap.to(image, {
-        x: imageX,
-        y: imageY,
-        duration: 0.3,
-        ease: "power1.out",
-    });
-}); */
+} imageFrameZentry();
