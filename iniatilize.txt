@@ -1,5 +1,0 @@
-zentry initialize :: Later for
-
-keep buttons simple :
-Make the Story Realm Section
-no need to waste time in extra ordinary animations on buttons and interections

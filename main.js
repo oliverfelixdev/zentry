@@ -1,3 +1,34 @@
+let enterWebsite = () => {
+    let ldrBtn = document.querySelector('#loaderButton');
+    let lDR = document.querySelector('#loader');
+
+    ldrBtn.addEventListener('click', () => {
+        gsap.to(lDR, {
+            opacity: 0,
+            y: -50,
+            scaleY: 100,
+            scaleX: 100,
+            duration: 3,
+            ease: Expo.easeInOut,
+            onComplete: () => {
+                lDR.style.display = 'none';
+            }
+        });
+    });
+}; enterWebsite();
+
+function lenisScroll() {
+    const lenis = new Lenis({
+        lerp: .10,
+    });
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+} lenisScroll();
+
 let soundSetup = () => {
     document.addEventListener(
         "click",
@@ -37,7 +68,7 @@ let soundSetup = () => {
         },
         { once: true }
     );
-}; /* soundSetup(); */
+}; soundSetup();
 
 let elemToLinkHover = () => {
     const links = document.querySelectorAll(".navLink");
@@ -150,59 +181,23 @@ let section2GsapVigour = () => {
     let image = document.querySelector(".tileImage");
 
     // animation for tile (bottom coming)
-    function forTileBottomComing() {
-        gsap.fromTo(
-            element,
-            {
-                y: 100,
-                opacity: 0,
-                scale: 0.8,
-            },
-            {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: "circ.out",
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top bottom",
-                    end: "top bottom",
-                },
-            }
-        );
-    }
-    forTileBottomComing();
 
-    // animation for tile (distort on Mousemove)
-    function forTileDistortion() {
-        document.body.addEventListener("mousemove", (e) => {
-            const { clientX, clientY } = e;
-            const { innerWidth, innerHeight } = window;
+    gsap.to(".expandableTile", {
+        scrollTrigger: {
+            trigger: '.sackMiddle',
+            scroller: 'body',
+            start: "top 0",
+            end: "top -100%",
+            scrub: true,
+            pin: true,
+        },
+        width: "100vw",
+        height: "110vh",
+        duration: 1,
+        borderRadius: '0px',
+        border: '.1px',
+    });
 
-            const tiltX = (clientY / innerHeight - 0.5) * 15;
-            const tiltY = (clientX / innerWidth - 0.5) * -15;
-
-            gsap.to(element, {
-                rotationX: tiltX,
-                rotationY: tiltY,
-                duration: 0.3,
-                ease: "power1.out",
-                transformPerspective: 500,
-            });
-
-            const imageX = (clientX / innerWidth - 0.5) * 3.5;
-            const imageY = (clientY / innerHeight - 0.5) * -3.5;
-
-            gsap.to(image, {
-                x: imageX,
-                y: imageY,
-                duration: 0.3,
-                ease: "power1.out",
-            });
-        });
-    }
-    forTileDistortion();
 
     // animation for clowns image
     function forClownsImages() {
@@ -223,7 +218,8 @@ let section2GsapVigour = () => {
         });
     }
     forClownsImages();
-}; section2GsapVigour();
+};
+section2GsapVigour();
 
 let launchSiteBtn = () => {
     const path1 = "M89.47156852711427,4.471282315617644 L89.47156852711427,4.471282315617644 Q103.16219344763192,4.469807077922436,103.16219344763192,18.160432077922437 L103.16219344763192,15.433317922077563 Q103.16219344763192,29.123942922077564,89.47156852711429,29.122467684382357 L14.714672640980366,29.11441223100252 Q1.0240477204627254,29.112936993307315,1.0240477204627254,15.422311993307314 L1.0240477204627254,18.171438006692686 Q1.0240477204627254,4.480813006692685,14.71467264098037,4.4793377689974765 Z";
@@ -261,7 +257,7 @@ let launchSiteBtn = () => {
         });
 }; launchSiteBtn();
 
-let titlGridItems = () => {
+let tiltGridItems = () => {
     const items = document.querySelectorAll(".grid-item");
     items.forEach((item) => {
         item.addEventListener("mousemove", (e) => {
@@ -293,10 +289,10 @@ let titlGridItems = () => {
             });
         });
     })
-}; titlGridItems()
+}; tiltGridItems()
 
 let playVideoOnHover = () => {
-    const gridItems = document.querySelectorAll(".grid-item");
+    const gridItems = document.querySelectorAll(".videoTile");
 
     gridItems.forEach((item) => {
         const gridVideo = item.querySelector(".grid-item video")
@@ -310,6 +306,37 @@ let playVideoOnHover = () => {
 
 
 }; playVideoOnHover()
+
+function gridTilesScrollAnimation() {
+    let gridItems = document.querySelectorAll(".grid-item");
+    gridItems.forEach((head) => {
+
+        gsap.fromTo(
+            head,
+            {
+                opacity: 0,
+                y: 80,
+                rotateX: -40,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                rotateX: 0,
+                rotateY: 0,
+                duration: .2,
+                stagger: 0.1,
+                ease: "power1.in",
+                scrollTrigger: {
+                    trigger: head,
+                    start: "top bottom",
+                    end: "top bottom",
+                    scrub: 1,
+                },
+            }
+        );
+    })
+}; gridTilesScrollAnimation();
 
 function fortitleALL() {
     let title = document.querySelectorAll(".title-lg");
@@ -343,7 +370,34 @@ function fortitleALL() {
         );
     })
 
-} fortitleALL();
+    let footerTitle = document.querySelectorAll(".footer-title");
+
+    gsap.fromTo(
+        footerTitle,
+        {
+            opacity: 0,
+            y: 80,
+            rotateX: -40,
+        },
+        {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            rotateX: 0,
+            rotateY: 0,
+            duration: .2,
+            stagger: 0.1,
+            ease: "power1.in",
+            scrollTrigger: {
+                trigger: footerTitle,
+                start: "top bottom",
+                end: "top bottom",
+                scrub: 1,
+            },
+        }
+    );
+
+}; fortitleALL();
 
 function imageFrameZentry() {
     let imageFrame = document.querySelectorAll(".image-frame");
@@ -377,4 +431,163 @@ function imageFrameZentry() {
         );
     })
 
-} imageFrameZentry();
+}; imageFrameZentry();
+
+function NavabrAllHere() {
+    // navabr stickey
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar')
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop) {
+            navbar.style.top = '-80px'
+        } else {
+            navbar.style.top = '0'
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    })
+
+    // navbar bg-color loagics
+    let navbarWrap = document.querySelector('.navbarWrap');
+    let bottOfPG = document.querySelector('#section_1')
+
+    gsap.to(navbarWrap, {
+        backgroundColor: '#000',
+        scrollTrigger: {
+            trigger: bottOfPG,
+            start: 'bottom bottom',
+            end: 'bottom top',
+            scrub: 1
+        }
+    })
+
+
+}; NavabrAllHere();
+
+function bodyColorChanges() {
+    let triggerOn = document.querySelector('.combiner');
+
+    gsap.to(triggerOn, {
+        backgroundColor: '#000',
+        scrollTrigger: {
+            trigger: triggerOn,
+            start: "top bottom",
+            end: "top bottom",
+            scrub: 2
+        }
+    })
+}; bodyColorChanges();
+
+function imageParallax() {
+    // duo tray images
+    gsap.utils.toArray(".parallax-con").forEach((container) => {
+        const img = container.querySelectorAll(".image-parallax");
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                scrub: true,
+                pin: false,
+            },
+        });
+        tl.fromTo(
+            img,
+            {
+                yPercent: -10,
+                ease: "none",
+            },
+            {
+                yPercent: 10,
+                ease: "none",
+            }
+        );
+    });
+}; imageParallax();
+
+function loaderBtn() {
+
+    let path1 =
+        "M125.1796875,5.460156249999999 L125.1796875,5.460156249999999 Q142.75,5.460156249999999,142.75,23.030468749999997 L142.75,19.516406250000003 Q142.75,37.08671875,125.1796875,37.08671875 L18.5703125,37.08671875 Q1,37.08671875,1,19.516406250000003 L1,23.030468749999997 Q1,5.460156249999999,18.5703125,5.460156249999999 Z";
+    let path2 =
+        "M130.38457744983828,4.316609959974228 L130.38457744983828,4.316609959974228 Q134.38390928117354,4.389718802589719,134.59409861810957,8.384192540472895 L135.95957957148465,34.334023713384646 Q136.16976890842068,38.32849745126782,132.17029916667857,38.39362643782035 L11.085874496280963,40.3654142935385 Q7.0864047545388615,40.43054328009103,6.917123235649168,36.43412691447516 L5.629228587206459,6.029371073529688 Q5.459947068316765,2.032954707913813,9.459278899652023,2.106063550529305 Z";
+
+    const path = document.querySelector(".ld-btn-path");
+
+    const hoverAnimation = gsap.timeline({ paused: true });
+    hoverAnimation.to(path, {
+        duration: 2,
+        morphSVG: path2,
+        ease: "elastic.out(1,0.2)",
+    });
+
+    const leaveAnimation = gsap.timeline({ paused: true });
+    leaveAnimation.to(path, {
+        duration: 0.7,
+        morphSVG: path1,
+        ease: "sine.inOut",
+    });
+
+    document
+        .querySelector(".ld-btn-bottom-svg")
+        .addEventListener("mouseenter", () => {
+            leaveAnimation.pause(0);
+            hoverAnimation.restart();
+        });
+
+    document
+        .querySelector(".ld-btn-bottom-svg")
+        .addEventListener("mouseleave", () => {
+            hoverAnimation.pause();
+            leaveAnimation.restart();
+        });
+} loaderBtn();
+
+let disables = () => {
+    document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+    });
+
+    // Disable all function keys (F1-F12)
+    document.addEventListener('keydown', function (event) {
+        // Block F12 (Developer Tools)
+        if (event.key === 'F12') {
+            event.preventDefault();
+        }
+
+        // Block all function keys (F1 - F12)
+        if (event.key.startsWith('F') && !isNaN(parseInt(event.key.substring(1)))) {
+            event.preventDefault();
+        }
+
+        // Block Ctrl + Shift + I (Developer Tools)
+        if (event.ctrlKey && event.shiftKey && event.key === 'I') {
+            event.preventDefault();
+        }
+
+        // Block Ctrl + Shift + J (Console)
+        if (event.ctrlKey && event.shiftKey && event.key === 'J') {
+            event.preventDefault();
+        }
+
+        // Block Ctrl + U (View Source)
+        if (event.ctrlKey && event.key === 'U') {
+            event.preventDefault();
+        }
+    });
+
+}; disables();
+
+function lazyLoadVideo() {
+    const video = document.getElementById('lazy-video');
+    const placeholder = document.getElementById('video-placeholder');
+    const videoPosition = video.getBoundingClientRect();
+
+    if (videoPosition.top < window.innerHeight + 300 && videoPosition.bottom > -300) {
+        video.style.display = 'block';
+        video.play();
+    }
+}
+
+window.addEventListener('scroll', lazyLoadVideo);
+window.addEventListener('resize', lazyLoadVideo);
+
+window.addEventListener('load', lazyLoadVideo);
